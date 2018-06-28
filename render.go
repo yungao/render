@@ -54,7 +54,7 @@ import (
 	"strings"
 
 	"github.com/oxtoacart/bpool"
-	"github.com/yungao/serve"
+	gofs "github.com/yungao/go-http-fs"
 
 	"github.com/go-martini/martini"
 )
@@ -397,7 +397,7 @@ func (r *renderer) ProgressDownload(callbakFunc func(start, send int64), file st
 	// r.Header().Set("Cache-Control", "must-revalidate")
 	// r.Header().Set("Pragma", "public")
 	// http.ServeFile(r.ResponseWriter, r.req, file)
-	serve.ServeFile(r.ResponseWriter, r.req, file, callbakFunc)
+	gofs.ServeFile(r.ResponseWriter, r.req, file, callbakFunc)
 }
 
 func (r *renderer) Text(status int, v string) {
